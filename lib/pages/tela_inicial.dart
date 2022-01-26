@@ -27,29 +27,35 @@ class _TelaInicialState extends State<TelaInicial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.green[700],
       body: SingleChildScrollView(
         child: Form(
           key: _formkey,
           child: Container(
             margin: const EdgeInsets.only(
               left: 40,
-              top: 100,
+              top: 140,
               right: 40,
               bottom: 5,
             ),
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 const Padding(
                   padding: EdgeInsets.all(20),
                   child: Center(
                     child: Text(
                       "Check-in Seguro",
-                      style: TextStyle(fontSize: 32, color: Colors.blue),
+                      style: TextStyle(
+                        fontSize: 32,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
+                ),
+                const SizedBox(
+                  height: 25,
                 ),
                 Center(
                   child: TextFormField(
@@ -61,27 +67,56 @@ class _TelaInicialState extends State<TelaInicial> {
                         return null;
                       }
                     },
-                    decoration: const InputDecoration(labelText: "Login: "),
-                    style: const TextStyle(fontSize: 20),
+                    decoration: const InputDecoration(
+                      labelText: "Login: ",
+                      labelStyle: TextStyle(color: Colors.white),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                    ),
+                    style: const TextStyle(fontSize: 20, color: Colors.white),
+                    cursorColor: Colors.white,
                     maxLength: 40,
                     keyboardType: TextInputType.emailAddress,
                   ),
                 ),
+                const SizedBox(
+                  height: 25,
+                ),
                 Center(
                   child: TextFormField(
                     //controller:
+                    decoration: const InputDecoration(
+                      labelText: "Senha: ",
+                      labelStyle: TextStyle(color: Colors.white),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                    ),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Campo obrigatório";
+                        return "Campo Obrigatorio";
                       } else {
                         return null;
                       }
                     },
-                    decoration: const InputDecoration(labelText: "Senha: "),
-                    style: const TextStyle(fontSize: 20),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                    cursorColor: Colors.white,
                     maxLength: 30,
                     obscureText: true,
                   ),
+                ),
+                const SizedBox(
+                  height: 25,
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 45),
@@ -90,15 +125,18 @@ class _TelaInicialState extends State<TelaInicial> {
                       SizedBox(
                         width: double.infinity,
                         height: 45,
-                        child: ElevatedButton(
+                        child: OutlinedButton(
                           // estilo para deixar botão arredondado
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
                               ),
                             ),
+                            primary: Colors.green,
+                            side: const BorderSide(
+                                color: Color(0xff197a0d), width: 2),
                           ),
                           onPressed: () {
                             setState(() {
@@ -107,7 +145,9 @@ class _TelaInicialState extends State<TelaInicial> {
                           },
                           child: const Text(
                             "Entrar",
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -118,17 +158,17 @@ class _TelaInicialState extends State<TelaInicial> {
                             child: SizedBox(
                               width: 65,
                               height: 65,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: const Color(0xffC0C0C0),
+                              child: OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                  side: const BorderSide(color: Colors.white),
                                   shape: const CircleBorder(),
-                                  shadowColor: const Color(0xffA9A9A9),
                                 ),
                                 onPressed: () {
                                   acessarCamera();
                                 },
                                 child: const Image(
-                                  image: AssetImage('assets/face-scan.png'),
+                                  image:
+                                      AssetImage('assets/scanner-de-rosto.png'),
                                 ),
                               ),
                             ),
