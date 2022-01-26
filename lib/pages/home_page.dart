@@ -42,44 +42,31 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Form(
           key: _formkey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: 220,
-                height: 50,
-                child: OutlinedButton(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const <Widget>[
-                      Icon(Icons.date_range),
-                      Text(
-                        "Data da Consulta/Exame",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      )
-                    ],
+          child: Container(
+            margin: const EdgeInsets.all(8),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width * .56,
+                  height: MediaQuery.of(context).size.width * .14,
+                  child: TextFormField(
+                    readOnly: true,
+                    controller: data,
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.date_range),
+                      border: OutlineInputBorder(),
+                      hintText: "Data Consulta/Exame",
+                    ),
+                    onTap: () {
+                      _selectcDate(context);
+                    },
                   ),
-                  onPressed: () {
-                    _selectcDate(context);
-                  },
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                width: 180,
-                child: TextFormField(
-                  controller: data,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Data",
-                  ),
-                  readOnly: true,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
