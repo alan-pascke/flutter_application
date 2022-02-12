@@ -13,8 +13,8 @@ class TelaInicial extends StatefulWidget {
 class _TelaInicialState extends State<TelaInicial> {
   final _formkey = GlobalKey<FormState>();
 
-  late File foto;
-  late File fototemp;
+  File? foto;
+  File? fototemp;
 
   void acessarCamera() async {
     fototemp =
