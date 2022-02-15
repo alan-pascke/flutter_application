@@ -22,8 +22,6 @@ class _HomePageState extends State<HomePage> {
 
   final DateFormat _dateFormat = DateFormat('dd/MM/yyyy');
 
-  final String dataQr = '123456';
-
   Future<void> _selectcDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,

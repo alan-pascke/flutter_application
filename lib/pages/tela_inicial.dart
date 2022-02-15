@@ -1,7 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_application/pages/camera.dart';
 
 class TelaInicial extends StatefulWidget {
   const TelaInicial({Key? key}) : super(key: key);
@@ -12,17 +10,6 @@ class TelaInicial extends StatefulWidget {
 
 class _TelaInicialState extends State<TelaInicial> {
   final _formkey = GlobalKey<FormState>();
-
-  File? foto;
-  File? fototemp;
-
-  void acessarCamera() async {
-    fototemp =
-        (await ImagePicker().pickImage(source: ImageSource.camera)) as File;
-    setState(() {
-      foto = fototemp;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -164,7 +151,13 @@ class _TelaInicialState extends State<TelaInicial> {
                                   shape: const CircleBorder(),
                                 ),
                                 onPressed: () {
-                                  acessarCamera();
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const OpenCamera(),
+                                      fullscreenDialog: true,
+                                    ),
+                                  );
                                 },
                                 child: const Image(
                                   image:
