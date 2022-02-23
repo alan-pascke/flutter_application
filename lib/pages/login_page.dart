@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/pages/camera.dart';
+import 'package:flutter_application/pages/open_camera.dart';
 
-class TelaInicial extends StatefulWidget {
-  const TelaInicial({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _TelaInicialState createState() => _TelaInicialState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _TelaInicialState extends State<TelaInicial> {
+class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
 
   @override

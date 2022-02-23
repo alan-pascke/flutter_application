@@ -1,6 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_application/pages/widgets/gerar_qrcode.dart';
+// ignore_for_file: avoid_print
 
+import 'package:flutter/material.dart';
+
+import 'package:qr_flutter/qr_flutter.dart';
+
+// ignore: must_be_immutable
 class QrCodePage extends StatefulWidget {
   const QrCodePage({Key? key}) : super(key: key);
 
@@ -9,6 +13,8 @@ class QrCodePage extends StatefulWidget {
 }
 
 class _QrCodePageState extends State<QrCodePage> {
+  String data = '1235652';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +30,10 @@ class _QrCodePageState extends State<QrCodePage> {
           ),
           const SizedBox(height: 60),
           Center(
-            child: qrcodeGerenator(context),
+            child: QrImage(
+              data: data,
+              size: 250,
+            ),
           ),
         ],
       ),

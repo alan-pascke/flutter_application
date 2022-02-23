@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application/pages/qrcode_page.dart';
 import 'package:flutter_application/pages/widgets/vltsner_doutores.dart';
